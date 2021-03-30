@@ -2,6 +2,8 @@ package com.bridgelabz;
 public class BinarySearchTree<K extends  Comparable<K>>
 {
     public BinaryTreeNode<K> root;
+    private Object BinaryTreeNode;
+
     public void add(K key)
     {
         this.root = this.addRecursively(root, key);
@@ -38,14 +40,15 @@ public class BinarySearchTree<K extends  Comparable<K>>
     {
         return this.getSizeRecursively(root);
     }
-
     public K nodeSearch(BinaryTreeNode<K> current, K key){
-        if (current == null || current.key == key)
-            return key;
-        int result = key.compareTo(current.key);
-        if (result < 0)
-            return nodeSearch(current.left, key);
-        else
-            return nodeSearch(current.right, key);
+        public K nodeSearch(BinaryTreeNode<K> current, K key)
+        {
+            if (current == null || current.key == key)
+                return key;
+            int result = key.compareTo(current.key);
+            if (result < 0)
+                return nodeSearch(current.left, key);
+            else
+                return nodeSearch(current.right, key);
+        }
     }
-}
